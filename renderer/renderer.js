@@ -28,8 +28,8 @@ function populateTimeSelects() {
 }
 
 function applySettingsToForm() {
-  $('host').value = settings.host || '192.168.1.203'
-  $('user').value = settings.user || 'shinobi'
+  $('host').value = settings.host || '192.168.1.100'
+  $('user').value = settings.user || 'pi'
   $('dest').value = settings.dest || ''
   $('scriptPath').value = settings.scriptPath || ''
   $('scheduleEnabled').checked = settings.scheduleEnabled !== false

@@ -6,11 +6,11 @@ const path = require('path')
 const fs = require('fs')
 const os = require('os')
 
-const PI_NAME = 'shinobi'
+const PI_NAME = 'raspberrypi'
 
 const schema = {
-  host: { type: 'string', default: '192.168.1.203' },
-  user: { type: 'string', default: 'shinobi' },
+  host: { type: 'string', default: '192.168.1.100' },
+  user: { type: 'string', default: 'pi' },
   dest: { type: 'string', default: '' },
   scheduleTime: { type: 'string', default: '03:00' },
   scheduleEnabled: { type: 'boolean', default: true },
@@ -113,7 +113,7 @@ ipcMain.handle('browse-script', async () => {
 })
 
 ipcMain.handle('test-connection', async () => {
-  const host = store.get('host', '192.168.1.203')
+  const host = store.get('host', '192.168.1.100')
   return new Promise((resolve) => {
     execFile('ping', ['-n', '1', '-w', '2000', host], (err) => resolve(!err))
   })
