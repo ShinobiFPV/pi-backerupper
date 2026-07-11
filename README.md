@@ -63,3 +63,7 @@ Produces a Windows x64 NSIS installer via `electron-builder`.
 - The scheduler only runs while the app is open; for a true
   background/service schedule, use the script's own
   `install-backup-task.ps1` (Windows Task Scheduler) instead.
+
+## License
+
+[MIT](LICENSE)
