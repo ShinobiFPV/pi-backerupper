@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Pi BackerUpper</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="titlebar">
+  <div class="tb-brand">PI BACKERUPPER</div>
+  <div class="tb-sub">ShinTech Electronics</div>
+  <div class="tb-controls">
+    <button id="btn-min">─</button>
+    <button id="btn-close">✕</button>
+  </div>
+</div>
+
+<div id="app">
+
+  <div id="col-left">
+
+    <section class="panel">
+      <h2>PI CONNECTION</h2>
+      <label>Host: <input type="text" id="host" /></label>
+      <label>User: <input type="text" id="user" /></label>
+      <button id="btn-test">Test Connection</button>
+      <div class="conn-row">
+        <span class="dot" id="conn-dot"></span>
+        <span id="conn-text">UNKNOWN</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>DESTINATION</h2>
+      <div class="row">
+        <input type="text" id="dest" readonly />
+        <button id="btn-browse-dest">Browse</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>SCHEDULE</h2>
+      <label class="checkbox-row">
+        <input type="checkbox" id="scheduleEnabled" />
+        Enable daily backup
+      </label>
+      <div class="row">
+        <span>Time:</span>
+        <select id="hour"></select>
+        <span>:</span>
+        <select id="minute"></select>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>INCLUDE</h2>
+      <label class="checkbox-row">
+        <input type="checkbox" id="src-home" />
+        Home directory <span class="dim">/home/shinobi/</span>
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="src-website" />
+        Website files <span class="dim">/var/www/shintech/</span>
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="src-nginx" />
+        nginx config <span class="dim">/etc/nginx/</span>
+      </label>
+      <label class="checkbox-row">
+        <input type="checkbox" id="src-systemd" />
+        systemd units <span class="dim">/etc/systemd/system/</span>
+      </label>
+    </section>
+
+    <section class="panel panel-small">
+      <h2>SCRIPT</h2>
+      <div class="row">
+        <input type="text" id="scriptPath" readonly />
+        <button id="btn-browse-script">Browse</button>
+      </div>
+    </section>
+
+  </div>
+
+  <div id="col-right">
+
+    <div id="status-cards">
+      <div class="card">
+        <div class="card-title">LAST BACKUP</div>
+        <div class="card-line" id="card-last-time">--</div>
+        <div class="card-line dim" id="card-last-detail">--</div>
+      </div>
+      <div class="card">
+        <div class="card-title">NEXT BACKUP</div>
+        <div class="card-line" id="card-next-time">--</div>
+        <div class="card-line dim" id="card-next-detail">--</div>
+      </div>
+      <div class="card">
+        <div class="card-title">PI STATUS</div>
+        <div class="card-line" id="card-pi-status">--</div>
+        <div class="card-line dim" id="card-pi-host">--</div>
+      </div>
+    </div>
+
+    <div id="log-header">
+      <span>BACKUP LOG</span>
+      <button id="btn-clear-log">Clear</button>
+    </div>
+    <div id="log"></div>
+
+    <div id="actions">
+      <button id="btn-run" class="btn-primary">▶ RUN NOW</button>
+      <button id="btn-image">SD IMAGE</button>
+      <button id="btn-logs">VIEW LOGS FOLDER</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="renderer.js"></script>
+</body>
+</html>

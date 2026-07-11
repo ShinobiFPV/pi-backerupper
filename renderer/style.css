@@ -1,0 +1,318 @@
+:root {
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --border: rgba(68, 136, 255, 0.2);
+  --text: #ffffff;
+  --dim: rgba(180, 180, 180, 0.65);
+  --blue: #4488ff;
+  --green: #00ff88;
+  --red: #ff3c3c;
+  --mono: 'Courier New', monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 12px;
+  overflow: hidden;
+  user-select: none;
+}
+
+button, input, select {
+  font-family: var(--mono);
+}
+
+/* ── Titlebar ─────────────────────────────────────── */
+
+#titlebar {
+  height: 34px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  -webkit-app-region: drag;
+}
+
+.tb-brand {
+  color: var(--blue);
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.tb-sub {
+  color: var(--dim);
+  font-size: 11px;
+}
+
+.tb-controls {
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+  -webkit-app-region: no-drag;
+}
+
+.tb-controls button {
+  width: 28px;
+  height: 24px;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--dim);
+  cursor: pointer;
+}
+
+.tb-controls button:hover {
+  background: rgba(68, 136, 255, 0.15);
+  color: var(--text);
+}
+
+#btn-close:hover {
+  background: rgba(255, 60, 60, 0.2);
+  color: var(--red);
+}
+
+/* ── Layout ───────────────────────────────────────── */
+
+#app {
+  display: flex;
+  height: calc(100% - 34px);
+  overflow: hidden;
+}
+
+#col-left {
+  width: 280px;
+  flex-shrink: 0;
+  padding: 8px;
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+}
+
+#col-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* ── Panels ───────────────────────────────────────── */
+
+.panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  margin-bottom: 6px;
+}
+
+.panel-small {
+  padding: 5px 10px;
+}
+
+.panel h2 {
+  margin: 0 0 6px 0;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--blue);
+  font-weight: normal;
+}
+
+.panel label {
+  display: block;
+  color: var(--dim);
+  margin-bottom: 4px;
+  font-size: 11px;
+}
+
+.panel input[type="text"] {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 4px 6px;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.row input[type="text"] {
+  flex: 1;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text);
+}
+
+.checkbox-row .dim {
+  color: var(--dim);
+  font-size: 10px;
+}
+
+select {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 3px;
+}
+
+button {
+  background: rgba(68, 136, 255, 0.1);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgba(68, 136, 255, 0.25);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.conn-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--dim);
+  display: inline-block;
+}
+
+.dot.online {
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+}
+
+.dot.offline {
+  background: var(--red);
+  box-shadow: 0 0 6px var(--red);
+}
+
+/* ── Status cards ─────────────────────────────────── */
+
+#status-cards {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.card {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 10px;
+  min-width: 0;
+}
+
+.card-title {
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--blue);
+  margin-bottom: 6px;
+}
+
+.card-line {
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-line.dim {
+  color: var(--dim);
+  font-size: 10px;
+}
+
+/* ── Log ──────────────────────────────────────────── */
+
+#log-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--blue);
+  margin-bottom: 4px;
+}
+
+#log-header button {
+  padding: 2px 8px;
+  font-size: 10px;
+}
+
+#log {
+  flex: 1;
+  background: #000000;
+  border: 1px solid var(--border);
+  overflow-y: auto;
+  padding: 8px;
+  font-size: 11px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  user-select: text;
+}
+
+.log-line.ok { color: var(--green); }
+.log-line.warn { color: #ffcc00; }
+.log-line.fail { color: var(--red); }
+.log-line.info { color: var(--dim); }
+
+/* ── Actions ──────────────────────────────────────── */
+
+#actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+#actions button {
+  flex: 1;
+  padding: 8px;
+}
+
+.btn-primary {
+  background: rgba(0, 255, 136, 0.1);
+  border-color: rgba(0, 255, 136, 0.4);
+  color: var(--green);
+}
+
+.btn-primary:hover {
+  background: rgba(0, 255, 136, 0.25);
+}
+
+.btn-cancel {
+  background: rgba(255, 60, 60, 0.15);
+  border-color: rgba(255, 60, 60, 0.4);
+  color: var(--red);
+}
+
+.btn-cancel:hover {
+  background: rgba(255, 60, 60, 0.3);
+}

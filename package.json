@@ -1,0 +1,31 @@
+{
+  "name": "pi-backerupper",
+  "version": "1.0.0",
+  "description": "Pi backup GUI for ShinTech Electronics",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder --win --x64"
+  },
+  "dependencies": {
+    "electron-store": "^8.1.0",
+    "node-schedule": "^2.1.1"
+  },
+  "devDependencies": {
+    "electron": "^28.0.0",
+    "electron-builder": "^24.0.0"
+  },
+  "build": {
+    "appId": "electronics.shintech.pi-backerupper",
+    "productName": "Pi BackerUpper",
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerHeaderBitmap": null
+    }
+  }
+}
