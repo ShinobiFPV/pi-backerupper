@@ -10,6 +10,8 @@ PowerShell script, `shintech-backup.ps1`. This app just builds the
 right command line, spawns it, and streams the output into a live
 log.
 
+![Pi BackerUpper screenshot](docs/screenshot.png)
+
 ## Features
 
 - Frameless, dark "Hi-Con" themed window
