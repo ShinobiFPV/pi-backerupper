@@ -6,9 +6,9 @@ to run it from the command line or manage Task Scheduler by hand.
 
 It's a wrapper, not a reimplementation: all the actual backup logic
 (rsync/scp, SD card imaging, exclusions) lives in a companion
-PowerShell script, [shintech-backup](https://github.com/ShinobiFPV/shintech-backup).
-This app just builds the right command line, spawns it, and streams
-the output into a live log.
+PowerShell script, `shintech-backup.ps1`. This app just builds the
+right command line, spawns it, and streams the output into a live
+log.
 
 ## Features
 
@@ -28,7 +28,7 @@ the output into a live log.
 
 - Windows + PowerShell
 - [Node.js](https://nodejs.org/) 18+
-- A copy of `shintech-backup.ps1` (see the companion repo above)
+- A copy of `shintech-backup.ps1`, the companion backup script
 - `rsync` on PATH for efficient transfers (falls back to `scp` if
   it's missing), and SSH access to the Pi
 
